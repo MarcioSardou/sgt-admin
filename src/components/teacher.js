@@ -12,39 +12,36 @@ import {
 
  } from 'react-admin';
 
-export const DisciplineList = props => (
+ export const TeacherList = props => (
   <List {...props}>
       <Datagrid rowClick="edit">
           <TextField source="id" label="ID"/>
           <TextField source="name" label="Nome"/>
-          <TextField source="cod" label="Código"/>
       </Datagrid>
   </List>
 );
 
-export const DisciplineCreate = props => (
+export const TeacherCreate = props => (
 	<Create {...props}>
 		<SimpleForm>
 		<TextInput source="name" label="Nome"/>
-		<TextInput source="cod" label="Código"/>
 		</SimpleForm>
 	</Create>
 )
 
-export const DisciplineUpdate = props => (
-	<Edit title="Edição de Usuário" {...props}>
+export const TeacherUpdate = props => (
+	<Edit title="Edição de Usuário" {...props}> 
 		<SimpleForm>
     <TextInput source="name" label="Nome"/>
-		<TextInput source="cod" label="Código"/>
 		</SimpleForm>
 	</Edit>
 )
 
-export const DisciplineShow = (props) => (
+export const TeacherShow = (props) => (
 	<Show {...props}>
 			<SimpleShowLayout>
+          <TextField source="id" label="ID"/> 
 					<TextField source="name" label="Nome" />
-					<TextField source="cod" label="Código"/>
 			</SimpleShowLayout>
 	</Show>
 );

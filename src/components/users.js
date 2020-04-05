@@ -3,11 +3,13 @@ import {
 	List,
 	Datagrid,
 	TextField,
+	EmailField,
 	Create,
 	Show,
 	Edit,
 	SimpleForm,
 	TextInput,
+	PasswordInput,
 	SimpleShowLayout,
 	EditButton,
 	DeleteButton,
@@ -19,9 +21,9 @@ import {
 export const UserList = props => (
 	<List {...props}>
 		<Datagrid>
-		<TextField source="id" />
-		<TextField source="name" />
-		<TextField source="username" />
+		<TextField source="id" label="ID"/>
+		<TextField source="name" label="Nome"/>
+		<EmailField source="email" label="E-mail"/>
 		<EditButton/>
 		<DeleteButton/>
 		<ShowButton/>
@@ -30,10 +32,11 @@ export const UserList = props => (
 	);
 
 export const UserCreate = props => (
-	<Create {...props}>
+	<Create title="Criação de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="name" />
-		<TextInput source="username" />
+		<TextInput source="name" label="Nome"/>
+		<TextInput source="username" label="E-mail"/>
+		<PasswordInput source="password" label="Senha" />
 		</SimpleForm>
 	</Create>
 )
@@ -41,14 +44,15 @@ export const UserCreate = props => (
 export const UserUpdate = props => (
 	<Edit title="Edição de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="name" />
-		<TextInput source="username" />
+		<TextInput source="name" label="Nome"/>
+		<TextInput source="username" label="E-mail"/>
+		<PasswordInput source="password" label="Senha" />
 		</SimpleForm>
 	</Edit>
 )
 
 export const UserShow = (props) => (
-	<Show {...props}>
+	<Show title="Exibição de Usuário" {...props}>
 			<SimpleShowLayout>
 					<TextField source="name" />
 					<TextField source="username" />
