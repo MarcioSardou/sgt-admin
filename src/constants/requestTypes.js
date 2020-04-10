@@ -52,6 +52,39 @@ export default {
     }
   },
 
+  CREATE:{
+    dataSend(resource, params){
+      const createData = Object.entries(params.data).reduce(
+        (acc, value) => {
+          let fieldValue = value[1]
+
+          if (fieldValue instanceof Array) fieldValue = `[${fieldValue}]`
+          else if (typeof fieldValue === 'string')
+            fieldValue = `"${fieldValue}"`
+
+          return {
+            input: `${acc.input}\n${value[0]}: ${fieldValue}`,
+          }
+        },
+        { input: '', output: 'id' }
+      )
+      
+      return {
+        query: `mutation {
+          ${resolveEntity(resource).create} (input: {${createData.input}}) {
+            id
+          }
+        }`,
+      }
+    },
+    dataReturn(res, resource){
+      const data = res.data.data[`${resolveEntity(resource).create}`]
+      if(data) return { data }
+
+      return Promise.reject();
+    }
+  },
+
   UPDATE: {
     dataSend(resource, params){
 
@@ -84,7 +117,24 @@ export default {
     dataReturn(res, resource){
 
       const data = res.data.data[`${resolveEntity(resource).update}`]
-      if(data) return { data: res.data.data[`${resolveEntity(resource).update}`] }
+      if(data) return { data }
+
+      return Promise.reject();
+    }
+  },
+
+  DELETE: {
+    dataSend(resource, params){
+      return {
+        query: `mutation {
+          ${resolveEntity(resource).delete} (id: ${params.id})
+        }`,
+      }
+    },
+
+    async dataReturn(res, resource){
+      const data = res.data.data
+      if(data) return { data }
 
       return Promise.reject();
     }

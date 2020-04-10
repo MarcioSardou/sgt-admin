@@ -34,9 +34,9 @@ export const UserList = props => (
 export const UserCreate = props => (
 	<Create title="Criação de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="name" label="Nome"/>
-		<TextInput source="username" label="E-mail"/>
-		<PasswordInput source="password" label="Senha" />
+		<TextInput source="nome" label="Nome"/>
+		<TextInput source="email" label="E-mail"/>
+		<PasswordInput source="senha" label="Senha" />
 		</SimpleForm>
 	</Create>
 )
@@ -46,7 +46,7 @@ export const UserUpdate = props => (
 		<SimpleForm>
 		<TextInput source="nome" label="Nome"/>
 		<TextInput source="email" label="E-mail"/>
-		<PasswordInput source="password" label="Senha" />
+		<PasswordInput source="senha" label="Senha" />
 		</SimpleForm>
 	</Edit>
 )
@@ -54,8 +54,8 @@ export const UserUpdate = props => (
 export const UserShow = (props) => (
 	<Show title="Exibição de Usuário" {...props}>
 			<SimpleShowLayout>
-					<TextField source="name" />
-					<TextField source="username" />
+					<TextField source="nome" />
+					<TextField source="email" />
 			</SimpleShowLayout>
 	</Show>
 );
