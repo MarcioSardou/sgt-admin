@@ -8,7 +8,7 @@ import {
   Edit,
   SimpleForm,
   SelectField,
-  TextInput,
+  // TextInput,
   SimpleShowLayout,
 
  } from 'react-admin';

@@ -21,12 +21,12 @@ import {
 export const UserList = props => (
 	<List {...props}>
 		<Datagrid>
-		<TextField source="id" label="ID"/>
-		<TextField source="name" label="Nome"/>
-		<EmailField source="email" label="E-mail"/>
-		<EditButton/>
-		<DeleteButton/>
-		<ShowButton/>
+			<TextField source="id" label="ID"/>
+			<TextField source="nome" label="Nome"/>
+			<EmailField source="email" label="E-mail"/>
+			<EditButton/>
+			<DeleteButton/>
+			<ShowButton/>
 		</Datagrid>
 	</List>
 	);
@@ -44,8 +44,8 @@ export const UserCreate = props => (
 export const UserUpdate = props => (
 	<Edit title="Edição de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="name" label="Nome"/>
-		<TextInput source="username" label="E-mail"/>
+		<TextInput source="nome" label="Nome"/>
+		<TextInput source="email" label="E-mail"/>
 		<PasswordInput source="password" label="Senha" />
 		</SimpleForm>
 	</Edit>

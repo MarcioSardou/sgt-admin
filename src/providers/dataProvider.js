@@ -1,28 +1,24 @@
 import axios from 'axios'
 import { __API_URL__ } from '../constants/api'
-import entity from '../constants/entity'
+import requestTypes from '../constants/requestTypes'
+import Errors from '../utils/error'
 
 export default (type, resource, params) => {
+  const token = localStorage.getItem('@admin:token')
+  const dataResquest = requestTypes[type];
+  
   return axios({
     method: 'POST',
     url: __API_URL__,
-    data: {"query":`query { 
-      allTeachers {
-        edges {
-          node {
-            id
-            nome
-          }
-        }
-        totalCount
-      }
-    }`}
+    data: dataResquest.dataSend(resource, params),
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   })
-  .then((res) => {
-    const data = res.data.data.allTeachers.edges.map(edge => edge.node)
-    return {
-      data: data,
-      total: res.data.data.allTeachers.totalCount
-    }
+  .then(res => dataResquest.dataReturn(res, resource))
+  .catch(e => {
+      let error = new Errors(e)
+      let err = error.parse(e, ',');
+      throw new Error(err)
   })
 }
