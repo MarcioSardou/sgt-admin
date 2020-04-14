@@ -13,7 +13,7 @@ function App() {
   return (
     <Admin dataProvider={dataProvider}>
       <Resource
-        name="Disciplinas"
+        name="Subjects"
         list={SubjectList}
         create={SubjectCreate}
         edit={SubjectUpdate}
@@ -37,7 +37,7 @@ function App() {
       />
 
       <Resource
-        name="Turnos"
+        name="Shifts"
         list={ShiftList}
         create={ShiftCreate}
         edit={ShiftUpdate}
@@ -45,7 +45,7 @@ function App() {
       />
 
       <Resource
-        name="Turmas"
+        name="ClassRooms"
         list={ListGuesser}
       />
 

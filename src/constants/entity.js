@@ -50,7 +50,6 @@ const entity = {
       params: `
         id
         nome
-        email
       `,
     }
   },
