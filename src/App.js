@@ -21,7 +21,7 @@ function App() {
       />
 
       <Resource
-        name="Teacher"
+        name="Teachers"
         list={TeacherList}
         create={TeacherCreate}
         edit={TeacherUpdate}

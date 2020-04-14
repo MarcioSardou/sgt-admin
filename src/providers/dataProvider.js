@@ -6,7 +6,7 @@ import Errors from '../utils/error'
 export default (type, resource, params) => {
   const token = localStorage.getItem('@admin:token')
   const dataResquest = requestTypes[type];
-  
+
   return axios({
     method: 'POST',
     url: __API_URL__,

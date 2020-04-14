@@ -55,12 +55,12 @@ const entity = {
     }
   },
 
-  Classes(){
+  ClassRooms(){
     return {
-      create: 'createUser',
-      update: 'updateUser',
-      delete: 'deleteUser',
-      singular: 'user',
+      create: 'createClassRoom',
+      update: 'updateClassRoom',
+      delete: 'deleteClassRoom',
+      singular: 'classRoom',
       params: `
         disciplina_id
         professor_id
