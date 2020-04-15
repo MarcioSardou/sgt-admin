@@ -2,6 +2,19 @@ const entity = type => {
   
   switch (type) {
     
+    case 'Users':
+      return {
+        create: 'createUser',
+        update: 'updateClass',
+        delete: 'deleteClass',
+        singular: 'user',
+        params: `
+          id
+          nome
+          email
+        `,
+      }
+
     case 'Classes':
       return {
         create: 'createClass',
@@ -9,78 +22,50 @@ const entity = type => {
         delete: 'deleteClass',
         singular: 'class',
         params: `
-        id
-        turma
-        sala
-        horario
-        subjectId
-        teacherId
-        shiftId
-        subject {
-          id
-          nome
-        }
-        techer {
-          id
-          nome
-        }
-        shift {
-          id
-          nome
-        }
-
+          disciplina_id
+          professor_id
+          turno_id
+          turma
+          sala
+          horario
         `,
       }
     
     case 'Subjects':
       return {
-        create: 'createSubjects',
-        update: 'updateSubjects',
-        delete: 'deleteSubjects',
+        create: 'createSubject',
+        update: 'updateSubject',
+        delete: 'deleteSubject',
         singular: 'subject',
         params: `
-        id
-        nome
-        codigo
+          id
+          nome
+          codigo
         `,
       }
     
     
     case 'Teachers':
       return {
-        create: 'createTeachers',
-        update: 'updateTeachers',
-        delete: 'deleteTeachers',
+        create: 'createTeacher',
+        update: 'updateTeacher',
+        delete: 'deleteTeacher',
         singular: 'teacher',
         params: `
-        id
-        nome   
-        `,
-      }
-    
-    case 'Users':
-      return {
-        create: 'createUsers',
-        update: 'updateUsers',
-        delete: 'deleteUsers',
-        singular: 'user',
-        params: `
-        id
-        nome
-        email
-        senha
+          id
+          nome   
         `,
       }
     
     case 'Shifts':
       return {
-        create: 'createShifts',
-        update: 'updateShifts',
-        delete: 'deleteShifts',
+        create: 'createShift',
+        update: 'updateShift',
+        delete: 'deleteShift',
         singular: 'shift',
         params: `
-        id
-        nome
+          id
+          nome
         `,
       }
     

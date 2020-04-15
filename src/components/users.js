@@ -17,6 +17,7 @@ import {
 	
 } from 'react-admin';
 
+import api from '../providers/dataProvider'
 
 export const UserList = props => (
 	<List {...props}>
@@ -29,7 +30,7 @@ export const UserList = props => (
 		<ShowButton/>
 		</Datagrid>
 	</List>
-	);
+);
 
 export const UserCreate = props => (
 	<Create title="Criação de Usuário" {...props}>

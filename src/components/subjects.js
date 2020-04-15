@@ -12,7 +12,7 @@ import {
 
  } from 'react-admin';
 
-export const SubjectsList = props => (
+export const SubjectList = props => (
   <List {...props}>
       <Datagrid>
           <TextField source="id" label="ID"/>
@@ -22,7 +22,7 @@ export const SubjectsList = props => (
   </List>
 );
 
-export const SubjectsCreate = props => (
+export const SubjectCreate = props => (
 	<Create  title="Criação de Disciplina"{...props}>
 		<SimpleForm>
 		<TextInput source="nome" label="Nome"/>
@@ -31,7 +31,7 @@ export const SubjectsCreate = props => (
 	</Create>
 )
 
-export const SubjectsUpdate = props => (
+export const SubjectUpdate = props => (
 	<Edit title="Edição de Disciplina" {...props}>
 		<SimpleForm>
     <TextInput source="nome" label="Nome"/>
@@ -40,7 +40,7 @@ export const SubjectsUpdate = props => (
 	</Edit>
 )
 
-export const SubjectsShow = (props) => (
+export const SubjectShow = (props) => (
 	<Show title="Exibição de Disciplina"{...props}>
 			<SimpleShowLayout>
           <TextField source="id" label="ID"/>
