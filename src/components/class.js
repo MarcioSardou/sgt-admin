@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	List,
 	Datagrid,
@@ -19,6 +19,13 @@ import {
 	
 } from 'react-admin';
 
+import { querieClass } from '../utils/queries/class'
+
+const [ teacherId, setTeacherId ] = useState('')
+
+useEffect(() => {
+
+},[])
 
 export const ClassList = props => (
 	<List {...props}>

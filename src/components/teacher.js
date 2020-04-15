@@ -16,7 +16,7 @@ import {
   <List {...props}>
       <Datagrid rowClick="edit">
           <TextField source="id" label="ID"/>
-          <TextField source="name" label="Nome"/>
+          <TextField source="nome" label="Nome"/>
       </Datagrid>
   </List>
 );
@@ -24,7 +24,7 @@ import {
 export const TeacherCreate = props => (
 	<Create {...props}>
 		<SimpleForm>
-		<TextInput source="name" label="Nome"/>
+		<TextInput source="nome" label="Nome"/>
 		</SimpleForm>
 	</Create>
 )
@@ -32,7 +32,7 @@ export const TeacherCreate = props => (
 export const TeacherUpdate = props => (
 	<Edit title="Edição de Usuário" {...props}> 
 		<SimpleForm>
-    <TextInput source="name" label="Nome"/>
+    <TextInput source="nome" label="Nome"/>
 		</SimpleForm>
 	</Edit>
 )
@@ -41,7 +41,7 @@ export const TeacherShow = (props) => (
 	<Show {...props}>
 			<SimpleShowLayout>
           <TextField source="id" label="ID"/> 
-					<TextField source="name" label="Nome" />
+					<TextField source="nome" label="Nome" />
 			</SimpleShowLayout>
 	</Show>
 );

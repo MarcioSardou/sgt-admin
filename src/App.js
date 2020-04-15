@@ -1,11 +1,10 @@
 import React from 'react';
-// import jsonServerProvider from 'ra-data-json-server';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import { UserList, UserCreate, UserUpdate, UserShow } from './components/users';
 import { SubjectCreate, SubjectList, SubjectUpdate, SubjectShow } from './components/subjects';
 import { TeacherCreate, TeacherList, TeacherUpdate, TeacherShow } from './components/teacher';
 import { ShiftCreate, ShiftList, ShiftUpdate, ShiftShow } from './components/shift';
-
+import { ClassCreate, ClassList, ClassUpdate, ClassShow } from './components/class';
 
 import dataProvider from './providers/dataProvider'
 
@@ -46,7 +45,10 @@ function App() {
 
       <Resource
         name="Turmas"
-        list={ListGuesser}
+        list={ClassList}
+        create={ClassCreate}
+        edit={ClassUpdate}
+        show={ClassShow}
       />
 
 
