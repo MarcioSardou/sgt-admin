@@ -1,11 +1,10 @@
 import axios from 'axios'
 import { __API_URL__ } from '../constants/api'
-import requestTypes from '../constants/requestTypes'
-import Errors from '../utils/error'
+import crudRequestTypes from '../constants/crudRequestTypes'
 
 export default (type, resource, params) => {
   const token = localStorage.getItem('@admin:token')
-  const dataResquest = requestTypes[type];
+  const dataResquest = crudRequestTypes[type];
 
   return axios({
     method: 'POST',
@@ -17,8 +16,6 @@ export default (type, resource, params) => {
   })
   .then(res => dataResquest.dataReturn(res, resource))
   .catch(e => {
-      let error = new Errors(e)
-      let err = error.parse(e, ',');
-      throw new Error(err)
+      throw new Error(e)
   })
 }

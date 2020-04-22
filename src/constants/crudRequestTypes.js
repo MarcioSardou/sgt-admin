@@ -138,6 +138,5 @@ export default {
 
       return Promise.reject();
     }
-  }
-  
+  },
 }
