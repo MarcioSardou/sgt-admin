@@ -47,6 +47,10 @@ export default {
 
     getMiddleware: () => {
         return Promise.resolve();
+    },
+
+    getPermissions: () => {
+        return Promise.resolve();
     }
 
 }
