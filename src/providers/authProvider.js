@@ -45,7 +45,7 @@ export default {
             : Promise.resolve()  
     },
 
-    getPermissions: () => {
+    getMiddleware: () => {
         return Promise.resolve();
     }
 
