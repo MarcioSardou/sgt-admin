@@ -11,12 +11,17 @@ import {
   SimpleShowLayout,
 
  } from 'react-admin';
+import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
+
 
  export const TeacherList = props => (
   <List {...props}>
       <Datagrid rowClick="edit">
           <TextField source="id" label="ID"/>
           <TextField source="nome" label="Nome"/>
+          <BtnShow/>
+          <BtnEdit/>
+          <BtnDelete/>
       </Datagrid>
   </List>
 );

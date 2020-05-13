@@ -20,13 +20,15 @@ import {
 } from 'react-admin';
 
 
+
 export const ClassList = props => (
 	<List {...props}>
-		<Datagrid>
+		<Datagrid rowClick="edit">
 		<NumberField source="id" label="ID"/>
 		<TextField source="turma" label="Turma"/>
 		<EmailField source="sala" label="Sala"/>
     <TextField source="horario" label="Horário" />
+		<TextField source="professor_id" label="aqi"/>
 		<EditButton/>
 		<DeleteButton/>
 		<ShowButton/>

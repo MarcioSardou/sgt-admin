@@ -8,10 +8,12 @@ import {
   Edit,
   SimpleForm,
   SelectField,
-  // TextInput,
+  SelectInput,
   SimpleShowLayout,
 
  } from 'react-admin';
+import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
+
 
 
  export const ShiftList = props => (
@@ -19,6 +21,9 @@ import {
       <Datagrid rowClick="edit">
           <TextField source="id" label="ID"/>
           <TextField source="name" label="Turno"/>
+          <BtnShow/>
+          <BtnEdit/>
+          <BtnDelete/>
       </Datagrid>
   </List>
 );
@@ -26,14 +31,14 @@ import {
 export const ShiftCreate = props => (
 	<Create {...props}>
 		<SimpleForm>
-		<SelectField source="name" label="Turno" choices={[
-      { id: 'm', name: 'Manhã'},
-      { id: 'n', name: 'Noite'},
-      ]}
-    />
+<SelectInput source="name" choices={[
+    { id: 'm', name: 'Manhã' },
+    { id: 'n', name: 'Noite' },
+]} />
 		</SimpleForm>
 	</Create>
 )
+
 
 export const ShiftUpdate = props => (
 	<Edit title="Edição de Turno" {...props}> 

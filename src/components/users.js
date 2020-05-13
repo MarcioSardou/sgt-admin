@@ -11,12 +11,9 @@ import {
 	TextInput,
 	PasswordInput,
 	SimpleShowLayout,
-	EditButton,
-	DeleteButton,
-	ShowButton,
 	
 } from 'react-admin';
-
+import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
 
 export const UserList = props => (
 	<List {...props}>
@@ -24,9 +21,9 @@ export const UserList = props => (
 			<TextField source="id" label="ID"/>
 			<TextField source="nome" label="Nome"/>
 			<EmailField source="email" label="E-mail"/>
-			<EditButton/>
-			<DeleteButton/>
-			<ShowButton/>
+			<BtnShow/>
+      <BtnEdit/>
+      <BtnDelete/>
 		</Datagrid>
 	</List>
 	);
