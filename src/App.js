@@ -1,13 +1,13 @@
 import React from 'react';
 // import jsonServerProvider from 'ra-data-json-server';
 import authProvider from './providers/authProvider';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import { UserList, UserCreate, UserUpdate, UserShow } from './components/users';
 import { SubjectCreate, SubjectList, SubjectUpdate, SubjectShow } from './components/subjects';
 import { TeacherCreate, TeacherList, TeacherUpdate, TeacherShow } from './components/teacher';
 import { ShiftCreate, ShiftList, ShiftUpdate, ShiftShow } from './components/shift';
-
-
+import { ClassCreate } from './components/classrooms/classCreate'
+import { ClassList } from './components/classrooms/classList'
 import dataProvider from './providers/dataProvider'
 
 function App() {
@@ -47,7 +47,8 @@ function App() {
 
       <Resource
         name="ClassRooms"
-        list={ListGuesser}
+        list={ClassList}
+        create={ClassCreate}
       />
 
 
