@@ -61,9 +61,9 @@ const entity = {
       delete: 'deleteClassRoom',
       singular: 'classRoom',
       params: `
-        disciplina_id
         professor_id
         turno_id
+        disciplina_id
         turma
         sala
         horario

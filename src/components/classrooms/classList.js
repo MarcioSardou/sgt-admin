@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import { appRequest } from '../../providers/dataProvider'
+import { query } from '../../utils/queries'
 import {
 	List,
 	Datagrid,
   TextField,
   NumberField,
   EmailField,
-	Create,
-	Show,
-	Edit,
-	SimpleForm,
-  TextInput,
-  SelectInput,
-	PasswordInput,
-	SimpleShowLayout,
 	EditButton,
 	DeleteButton,
   ShowButton,
-  useDataProvider,
-	
+
 } from 'react-admin';
 
-
 export const ClassList = props => {
+	const [subjects, setSubjects] = useState([])
+	const [teachers, setTeachers] = useState([])
+	const [shifts, setShifts] = useState([])
 
- 
-useEffect(() => {
-   console.log(props);
-  
-},[props]) 
+
+	useEffect(() => {
+
+		async function renderData(){
+
+		const {
+			data: {
+				data: { allSubjects, allTeachers, allShifts },
+			},
+		} = await appRequest(query)
+		const subjects = allSubjects.edges.node.map(item => item.nome)
+		const teachers = allTeachers.edges.node.map(item => item.nome)
+		const shifts = allShifts.edges.node.map(item => item.nome)
+
+			setSubjects(subjects)
+			setTeachers(teachers)
+			setShifts(shifts)
+			
+	}
+	renderData()
+},[]) 
 
     
-
 	return (
 	<List {...props}>
 		<Datagrid rowClick="edit">
@@ -38,7 +48,7 @@ useEffect(() => {
 		<TextField source="turma" label="Turma"/>
 		<EmailField source="sala" label="Sala"/>
     <TextField source="horario" label="Horário" />
-		<TextField source="professor_id" label="Professor"/>
+		<TextField source={teachers} label="Professor"/>
 		<EditButton/>
 		<DeleteButton/>
 		<ShowButton/>
