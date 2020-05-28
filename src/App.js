@@ -6,8 +6,9 @@ import { UserList, UserCreate, UserUpdate, UserShow } from './components/users';
 import { SubjectCreate, SubjectList, SubjectUpdate, SubjectShow } from './components/subjects';
 import { TeacherCreate, TeacherList, TeacherUpdate, TeacherShow } from './components/teacher';
 import { ShiftCreate, ShiftList, ShiftUpdate, ShiftShow } from './components/shift';
-import { ClassCreate } from './components/classrooms/classCreate'
 import { ClassList } from './components/classrooms/classList'
+import { ClassCreate } from './components/classrooms/classCreate'
+import { ClassUpdate } from './components/classrooms/classUpdate'
 import dataProvider from './providers/dataProvider'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         name="ClassRooms"
         list={ClassList}
         create={ClassCreate}
+        edit={ClassUpdate}
       />
 
 

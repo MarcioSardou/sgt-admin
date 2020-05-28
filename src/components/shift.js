@@ -7,7 +7,6 @@ import {
   Show,
   Edit,
   SimpleForm,
-  SelectField,
   SelectInput,
   SimpleShowLayout,
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { appRequest } from '../../providers/dataProvider'
 import { query } from '../../utils/queries'
 import {
-	Create,
+	Edit,
 	SimpleForm,
   TextInput,
   SelectInput,
@@ -11,7 +11,7 @@ import {
 } from 'react-admin';
 
 
-export const ClassCreate = props => {
+export const ClassUpdate = props => {
 
   const [subjects, setSubjects] = useState([])
   const [teachers, setTeachers] = useState([])
@@ -41,7 +41,7 @@ export const ClassCreate = props => {
 
 
 	return (
-	<Create title="Criação de Turma" {...props}>
+	<Edit title="Edição de Turma" {...props}>
 		<SimpleForm>
 		<TextInput source="turma" label="Turma"/>
 		<TextInput source="sala" label="Sala"/>
@@ -49,6 +49,7 @@ export const ClassCreate = props => {
     <SelectInput 
       source="professor_id"
       choices={teachers}
+      optionText="name"
     />
     <SelectInput 
       source="disciplina_id"
@@ -59,44 +60,9 @@ export const ClassCreate = props => {
       choices={shifts}
     />
 		</SimpleForm>
-	</Create>
+	</Edit>
 )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const ClassShow = (props) => (
-// 	<Show title="Exibição de Turma" {...props}>
-// 			<SimpleShowLayout>
-//         <NumberField source="id" label="ID"/>
-//         <TextField source="turma" label="Turma"/>
-//         <EmailField source="sala" label="Sala"/>
-//         <TextField source="horario" label="Horário" />
-// 			</SimpleShowLayout>
-// 	</Show>
-// );
 
 
 

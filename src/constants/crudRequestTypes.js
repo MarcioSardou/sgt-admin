@@ -21,7 +21,7 @@ export default {
         }`,
       }
     },
-
+    
     dataReturn(res, resource){
       const data = res.data.data[`all${resource}`].edges.node
       if(data) return { data, total: res.data.data[`all${resource}`].totalCount }
@@ -86,7 +86,17 @@ export default {
   },
 
   UPDATE: {
-    dataSend(resource, params){
+    async dataSend(resource, params){
+
+      const removeField = await entity.paramsToRemoveOnUpdate
+      ? resolveEntity(resource).paramsToRemoveOnUpdate
+      : null
+      
+    if (removeField) {
+      removeField.forEach(field => {
+        delete params.data[field]
+      })
+    }
 
       const updateData = Object.entries(params.data).reduce(
         (acc, value) => {

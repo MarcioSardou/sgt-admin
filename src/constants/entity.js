@@ -61,15 +61,26 @@ const entity = {
       delete: 'deleteClassRoom',
       singular: 'classRoom',
       params: `
-        professor_id
-        turno_id
-        disciplina_id
+        id
         turma
         sala
         horario
+        professor {
+          id
+          nome
+        }
+        turno {
+          id
+          nome
+        }
+        disciplina {
+          id
+          nome
+        }
       `,
     }
-  }
+  },
+  paramsToRemoveOnUpdate: ['professor', 'disciplina', 'Turno'],
 }
 
 export default entity
