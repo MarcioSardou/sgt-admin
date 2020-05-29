@@ -19,3 +19,22 @@ export default (type, resource, params) => {
       throw new Error(e)
   })
 }
+
+export const appRequest =  async query => {
+  const token = localStorage.getItem('@admin:token')
+
+  return axios({
+    url: __API_URL__,
+    method: 'post',
+    data: {
+      query: `
+        query {
+          ${query}
+        }
+      `,
+    },
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  })
+}
