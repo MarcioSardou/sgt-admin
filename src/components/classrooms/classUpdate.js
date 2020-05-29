@@ -47,16 +47,16 @@ export const ClassUpdate = props => {
 		<TextInput source="sala" label="Sala"/>
 		<TextInput source="horario" label="Horário"/>
     <SelectInput 
-      source="professor_id"
+      source="professor.id"
       choices={teachers}
       optionText="name"
     />
     <SelectInput 
-      source="disciplina_id"
+      source="disciplina.id"
       choices={subjects}
     />
     <SelectInput 
-      source="turno_id"
+      source="turno.id"
       choices={shifts}
     />
 		</SimpleForm>
