@@ -92,11 +92,11 @@ export default {
       ? resolveEntity(resource).paramsToRemoveOnUpdate
       : null
       
-    if (removeField) {
-      removeField.forEach(field => {
-        delete params.data[field]
-      })
-    }
+      if (removeField) {
+        removeField.forEach(field => {
+          delete params.data[field]
+        })
+      }
 
       const updateData = Object.entries(params.data).reduce(
         (acc, value) => {
@@ -112,7 +112,6 @@ export default {
         { input: '', output: 'id' }
       )
       
-
       return {
         query: `mutation {
           ${resolveEntity(resource).update} (id: ${params.id}, input: {${

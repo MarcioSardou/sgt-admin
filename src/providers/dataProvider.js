@@ -2,14 +2,15 @@ import axios from 'axios'
 import { __API_URL__ } from '../constants/api'
 import crudRequestTypes from '../constants/crudRequestTypes'
 
-export default (type, resource, params) => {
+export default async (type, resource, params) => {
   const token = localStorage.getItem('@admin:token')
   const dataResquest = crudRequestTypes[type];
+  const dataForm = await dataResquest.dataSend(resource, params);
 
   return axios({
     method: 'POST',
     url: __API_URL__,
-    data: dataResquest.dataSend(resource, params),
+    data: dataForm,
     headers: {
       Authorization: `Bearer ${token}`,
     },
