@@ -89,7 +89,7 @@ export default {
     async dataSend(resource, params){
 
       const removeField = await entity.paramsToRemoveOnUpdate
-      ? resolveEntity(resource).paramsToRemoveOnUpdate
+      ? entity.paramsToRemoveOnUpdate
       : null
       
       if (removeField) {

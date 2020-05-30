@@ -80,7 +80,7 @@ const entity = {
       `,
     }
   },
-  paramsToRemoveOnUpdate: ['professor', 'disciplina', 'Turno'],
+  paramsToRemoveOnUpdate: ['professor', 'disciplina', 'turno'],
 }
 
 export default entity

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { appRequest } from '../../providers/dataProvider'
-import { query } from '../../utils/queries'
+import { query } from '../../constants/queries'
 import {
 	Edit,
 	SimpleForm,
@@ -47,16 +47,18 @@ export const ClassUpdate = props => {
 		<TextInput source="sala" label="Sala"/>
 		<TextInput source="horario" label="Horário"/>
     <SelectInput 
-      source="professor.id"
+      source="professor_id"
+      label="Professor"
       choices={teachers}
-      optionText="name"
     />
     <SelectInput 
-      source="disciplina.id"
+      source="disciplina_id"
+      label="Disciplina"
       choices={subjects}
     />
     <SelectInput 
-      source="turno.id"
+      source="turno_id"
+      label="Turno"
       choices={shifts}
     />
 		</SimpleForm>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { appRequest } from '../../providers/dataProvider'
-import { query } from '../../utils/queries'
+import { query } from '../../constants/queries'
 import {
 	Create,
 	SimpleForm,

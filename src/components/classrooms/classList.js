@@ -1,12 +1,10 @@
 import React from 'react';
+import { BtnEdit, BtnShow, BtnDelete } from '../../utils/templates/buttons'
 import {
 	List,
 	Datagrid,
   TextField,
   NumberField,
-	EditButton,
-	DeleteButton,
-  ShowButton,
 
 } from 'react-admin';
 
@@ -20,10 +18,12 @@ export const ClassList = props => {
 		<TextField source="turma" label="Turma"/>
 		<TextField source="sala" label="Sala"/>
     <TextField source="horario" label="Horário" />
-		{/* <TextField source="professor" label="Professor"/> */}
-		<EditButton/>
-		<DeleteButton/>
-		<ShowButton/>
+		<TextField source="professor.nome" label="Professor"/>
+		<TextField source="disciplina.nome" label="Disciplina"/>
+		<TextField source="turno.nome" label="Turno"/>
+		<BtnShow/>
+		<BtnEdit/>
+		<BtnDelete/>
 		</Datagrid>
 	</List>
 	)}

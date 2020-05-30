@@ -16,35 +16,32 @@ function properties(props) {
 }
 
 export const BtnEdit = props => {
-  const thisProps = properties(props)
   return (
     <EditButton
       {...props}
       label=""
-      title={'Editar ' + thisProps.postText + thisProps.propTarget}
+      title={'Editar '}
     />
   )
 }
 
 export const BtnShow = props => {
-  const thisProps = properties(props)
 
   return (
     <ShowButton
       {...props}
       label=""
-      title={'Ver ' + thisProps.postText + thisProps.propTarget}
+      title={'Ver '}
     />
   )
 }
 
 export const BtnDelete = props => {
-  const thisProps = properties(props)
   return (
     <DeleteButton
       {...props}
       label=""
-      title={'Excluir ' + thisProps.postText + thisProps.propTarget}
+      title={'Excluir '}
     />
   )
 }
