@@ -11,9 +11,14 @@ import {
 	TextInput,
 	PasswordInput,
 	SimpleShowLayout,
+	maxLength,
+	minLength,
+	required
 	
 } from 'react-admin';
 import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
+import { mediumText, emailValidate } from '../utils/validators/validations'
+
 
 export const UserList = props => (
 	<List {...props}>
@@ -31,9 +36,12 @@ export const UserList = props => (
 export const UserCreate = props => (
 	<Create title="Criação de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="nome" label="Nome"/>
-		<TextInput source="email" label="E-mail"/>
-		<PasswordInput source="senha" label="Senha" />
+		<TextInput source="nome" label="Nome" validate={mediumText} />
+		<TextInput source="email" label="E-mail" validate={emailValidate}/>
+		<PasswordInput source="senha" label="Senha" validate={[
+			required(),
+			minLength(6, "Senha deve ter no mínimo 6 digitos"),
+			maxLength(8, "Senha deve ter no máximo 8 dígitos")]}/>
 		</SimpleForm>
 	</Create>
 )
@@ -41,9 +49,12 @@ export const UserCreate = props => (
 export const UserUpdate = props => (
 	<Edit title="Edição de Usuário" {...props}>
 		<SimpleForm>
-		<TextInput source="nome" label="Nome"/>
-		<TextInput source="email" label="E-mail"/>
-		<PasswordInput source="senha" label="Senha" />
+		<TextInput source="nome" label="Nome"validate={mediumText} />
+		<TextInput source="email" label="E-mail" validate={emailValidate}/>
+		<PasswordInput source="senha" label="Senha" validate={[
+			required(),
+			minLength(6, "Senha deve ter no mínimo 6 digitos"),
+			maxLength(8, "Senha deve ter no máximo 8 dígitos")]}/>
 		</SimpleForm>
 	</Edit>
 )

@@ -12,6 +12,7 @@ import {
 
  } from 'react-admin';
 import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
+import { largeText, codValidation } from '../utils/validators/validations'
 
 export const SubjectList = props => (
   <List {...props}>
@@ -29,8 +30,8 @@ export const SubjectList = props => (
 export const SubjectCreate = props => (
 	<Create  title="Criação de Disciplina"{...props}>
 		<SimpleForm>
-		<TextInput source="nome" label="Nome"/>
-		<TextInput source="codigo" label="Código"/>
+		<TextInput source="nome" label="Nome" validate={largeText}/>
+		<TextInput source="codigo" label="Código" validate={codValidation}/>
 		</SimpleForm>
 	</Create>
 )
@@ -38,8 +39,8 @@ export const SubjectCreate = props => (
 export const SubjectUpdate = props => (
 	<Edit title="Edição de Disciplina" {...props}>
 		<SimpleForm>
-    <TextInput source="nome" label="Nome"/>
-		<TextInput source="codigo" label="Código"/>
+    <TextInput source="nome" label="Nome"validate={largeText} />
+		<TextInput source="codigo" label="Código" validate={codValidation}/>
 		</SimpleForm>
 	</Edit>
 )

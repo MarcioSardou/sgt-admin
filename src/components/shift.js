@@ -9,10 +9,10 @@ import {
   SimpleForm,
   SelectInput,
   SimpleShowLayout,
+  required,
 
  } from 'react-admin';
 import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
-
 
 
  export const ShiftList = props => (
@@ -33,6 +33,7 @@ export const ShiftCreate = props => (
       <SelectInput
         source="nome"
         label="Turnos"
+        validate={required()}
         choices={[
           { id: 'Manhã', name: 'Manhã' },
           { id: 'Noite', name: 'Noite' },
@@ -45,10 +46,15 @@ export const ShiftCreate = props => (
 export const ShiftUpdate = props => (
 	<Edit title="Edição de Turno" {...props}> 
 		<SimpleForm>
-    <SelectInput source="nome" label="Turno" choices={[
+    <SelectInput 
+      source="nome"
+      label="Turno"
+      validate={required()}
+      choices={[
       { id: 'manha', name: 'Manhã'},
       { id: 'noite', name: 'Noite'},
       ]}
+
     />
 		</SimpleForm>
 	</Edit>

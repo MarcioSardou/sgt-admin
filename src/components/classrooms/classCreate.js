@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { appRequest } from '../../providers/dataProvider'
 import { query } from '../../constants/queries'
+import { smallText, timeValidate } from '../../utils/validators/validations'
+
 import {
 	Create,
 	SimpleForm,
   TextInput,
   SelectInput,
-
+  required,
 	
 } from 'react-admin';
 
@@ -43,20 +45,23 @@ export const ClassCreate = props => {
 	return (
 	<Create title="Criação de Turma" {...props}>
 		<SimpleForm>
-		<TextInput source="turma" label="Turma"/>
-		<TextInput source="sala" label="Sala"/>
-		<TextInput source="horario" label="Horário"/>
+		<TextInput source="turma" label="Turma" validate={smallText}/>
+		<TextInput source="sala" label="Sala" validate={smallText}/>
+		<TextInput source="horario" label="Horário" validate={timeValidate}/> 
     <SelectInput 
       source="professor_id"
       choices={teachers}
+      validate={required()}
     />
     <SelectInput 
       source="disciplina_id"
       choices={subjects}
+      validate={required()}
     />
     <SelectInput 
       source="turno_id"
       choices={shifts}
+      validate={required()}
     />
 		</SimpleForm>
 	</Create>

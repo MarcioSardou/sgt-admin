@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { appRequest } from '../../providers/dataProvider'
 import { query } from '../../constants/queries'
+import { smallText, timeValidate } from '../../utils/validators/validations'
+
 import {
 	Edit,
 	SimpleForm,
   TextInput,
   SelectInput,
+  required,
 
 	
 } from 'react-admin';
@@ -43,23 +46,26 @@ export const ClassUpdate = props => {
 	return (
 	<Edit title="Edição de Turma" {...props}>
 		<SimpleForm>
-		<TextInput source="turma" label="Turma"/>
-		<TextInput source="sala" label="Sala"/>
-		<TextInput source="horario" label="Horário"/>
+		<TextInput source="turma" label="Turma" validate={smallText}/>
+		<TextInput source="sala" label="Sala" validate={smallText}/>
+		<TextInput source="horario" label="Horário" validate={timeValidate}/>
     <SelectInput 
       source="professor_id"
       label="Professor"
       choices={teachers}
+      validate={required()}
     />
     <SelectInput 
       source="disciplina_id"
       label="Disciplina"
       choices={subjects}
+      validate={required()}
     />
     <SelectInput 
       source="turno_id"
       label="Turno"
       choices={shifts}
+      validate={required()}
     />
 		</SimpleForm>
 	</Edit>

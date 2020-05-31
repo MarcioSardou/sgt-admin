@@ -12,6 +12,8 @@ import {
 
  } from 'react-admin';
 import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
+import { mediumText } from '../utils/validators/validations'
+
 
 
  export const TeacherList = props => (
@@ -29,7 +31,7 @@ import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
 export const TeacherCreate = props => (
 	<Create {...props}>
 		<SimpleForm>
-		<TextInput source="nome" label="Nome"/>
+		<TextInput source="nome" label="Nome" validate={mediumText}/>
 		</SimpleForm>
 	</Create>
 )
@@ -37,7 +39,7 @@ export const TeacherCreate = props => (
 export const TeacherUpdate = props => (
 	<Edit title="Edição de Usuário" {...props}> 
 		<SimpleForm>
-    <TextInput source="nome" label="Nome"/>
+    <TextInput source="nome" label="Nome" validate={mediumText}/>
 		</SimpleForm>
 	</Edit>
 )
