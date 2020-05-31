@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   List,
   Datagrid,
@@ -10,61 +10,58 @@ import {
   SelectInput,
   SimpleShowLayout,
   required,
+} from "react-admin";
+import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 
- } from 'react-admin';
-import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
-
-
- export const ShiftList = props => (
+export const ShiftList = (props) => (
   <List {...props}>
-      <Datagrid rowClick="edit">
-          <TextField source="id" label="ID"/>
-          <TextField source="nome" label="Turnos"/>
-          <BtnShow/>
-          <BtnEdit/>
-          <BtnDelete/>
-      </Datagrid>
+    <Datagrid rowClick="edit">
+      <TextField source="id" label="ID" />
+      <TextField source="nome" label="Turnos" />
+      <BtnShow />
+      <BtnEdit />
+      <BtnDelete />
+    </Datagrid>
   </List>
 );
 
-export const ShiftCreate = props => (
-	<Create {...props}>
-		<SimpleForm>
+export const ShiftCreate = (props) => (
+  <Create {...props}>
+    <SimpleForm>
       <SelectInput
         source="nome"
         label="Turnos"
         validate={required()}
         choices={[
-          { id: 'Manhã', name: 'Manhã' },
-          { id: 'Noite', name: 'Noite' },
+          { id: "Manhã", name: "Manhã" },
+          { id: "Noite", name: "Noite" },
         ]}
       />
-		</SimpleForm>
-	</Create>
-)
+    </SimpleForm>
+  </Create>
+);
 
-export const ShiftUpdate = props => (
-	<Edit title="Edição de Turno" {...props}> 
-		<SimpleForm>
-    <SelectInput 
-      source="nome"
-      label="Turno"
-      validate={required()}
-      choices={[
-      { id: 'manha', name: 'Manhã'},
-      { id: 'noite', name: 'Noite'},
-      ]}
-
-    />
-		</SimpleForm>
-	</Edit>
-)
+export const ShiftUpdate = (props) => (
+  <Edit title="Edição de Turno" {...props}>
+    <SimpleForm>
+      <SelectInput
+        source="nome"
+        label="Turno"
+        validate={required()}
+        choices={[
+          { id: "manha", name: "Manhã" },
+          { id: "noite", name: "Noite" },
+        ]}
+      />
+    </SimpleForm>
+  </Edit>
+);
 
 export const ShiftShow = (props) => (
-	<Show {...props}>
-			<SimpleShowLayout>
-        <TextField source="id" label="ID"/>
-        <TextField source="nome" label="Turno"/>
-			</SimpleShowLayout>
-	</Show>
+  <Show {...props}>
+    <SimpleShowLayout>
+      <TextField source="id" label="ID" />
+      <TextField source="nome" label="Turno" />
+    </SimpleShowLayout>
+  </Show>
 );
