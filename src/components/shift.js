@@ -14,7 +14,7 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 
 export const ShiftList = (props) => (
-  <List {...props}>
+  <List {...props} title="Turno">
     <Datagrid rowClick="edit">
       <TextField source="id" label="ID" />
       <TextField source="nome" label="Turnos" />

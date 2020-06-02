@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   List,
   Datagrid,
@@ -13,50 +13,59 @@ import {
   SimpleShowLayout,
   maxLength,
   minLength,
-  required
+  required,
+} from "react-admin";
+import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
+import { mediumText, emailValidate } from "../utils/validators/validations";
 
-} from 'react-admin'
-import { BtnEdit, BtnShow, BtnDelete } from '../utils/templates/buttons'
-import { mediumText, emailValidate } from '../utils/validators/validations'
-
-export const UserList = props => (
-  <List {...props}>
+export const UserList = (props) => (
+  <List {...props} title="Usuários">
     <Datagrid>
-      <TextField source="id" label="ID"/>
-      <TextField source="nome" label="Nome"/>
-      <EmailField source="email" label="E-mail"/>
-      <BtnShow/>
-      <BtnEdit/>
-      <BtnDelete/>
+      <TextField source="id" label="ID" />
+      <TextField source="nome" label="Nome" />
+      <EmailField source="email" label="E-mail" />
+      <BtnShow />
+      <BtnEdit />
+      <BtnDelete />
     </Datagrid>
   </List>
-)
+);
 
-export const UserCreate = props => (
+export const UserCreate = (props) => (
   <Create title="Criação de Usuário" {...props}>
     <SimpleForm>
       <TextInput source="nome" label="Nome" validate={mediumText} />
-      <TextInput source="email" label="E-mail" validate={emailValidate}/>
-      <PasswordInput source="senha" label="Senha" validate={[
-        required(),
-        minLength(6, 'Senha deve ter no mínimo 6 digitos'),
-        maxLength(8, 'Senha deve ter no máximo 8 dígitos')]}/>
+      <TextInput source="email" label="E-mail" validate={emailValidate} />
+      <PasswordInput
+        source="senha"
+        label="Senha"
+        validate={[
+          required(),
+          minLength(6, "Senha deve ter no mínimo 6 digitos"),
+          maxLength(8, "Senha deve ter no máximo 8 dígitos"),
+        ]}
+      />
     </SimpleForm>
   </Create>
-)
+);
 
-export const UserUpdate = props => (
+export const UserUpdate = (props) => (
   <Edit title="Edição de Usuário" {...props}>
     <SimpleForm>
-      <TextInput source="nome" label="Nome"validate={mediumText} />
-      <TextInput source="email" label="E-mail" validate={emailValidate}/>
-      <PasswordInput source="senha" label="Senha" validate={[
-        required(),
-        minLength(6, 'Senha deve ter no mínimo 6 digitos'),
-        maxLength(8, 'Senha deve ter no máximo 8 dígitos')]}/>
+      <TextInput source="nome" label="Nome" validate={mediumText} />
+      <TextInput source="email" label="E-mail" validate={emailValidate} />
+      <PasswordInput
+        source="senha"
+        label="Senha"
+        validate={[
+          required(),
+          minLength(6, "Senha deve ter no mínimo 6 digitos"),
+          maxLength(8, "Senha deve ter no máximo 8 dígitos"),
+        ]}
+      />
     </SimpleForm>
   </Edit>
-)
+);
 
 export const UserShow = (props) => (
   <Show title="Exibição de Usuário" {...props}>
@@ -65,4 +74,4 @@ export const UserShow = (props) => (
       <TextField source="email" />
     </SimpleShowLayout>
   </Show>
-)
+);
