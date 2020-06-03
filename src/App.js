@@ -21,12 +21,6 @@ import {
   TeacherUpdate,
   TeacherShow,
 } from "./components/teacher";
-import {
-  ShiftCreate,
-  ShiftList,
-  ShiftUpdate,
-  ShiftShow,
-} from "./components/shift";
 import { ClassList } from "./components/classrooms/classList";
 import { ClassCreate } from "./components/classrooms/classCreate";
 import { ClassUpdate } from "./components/classrooms/classUpdate";
@@ -68,15 +62,6 @@ function App() {
         edit={UserUpdate}
         show={UserShow}
         icon={AccountCircleIcon}
-      />
-
-      <Resource
-        options={{ label: "Turnos" }}
-        name="Shifts"
-        list={ShiftList}
-        create={ShiftCreate}
-        edit={ShiftUpdate}
-        show={ShiftShow}
       />
 
       <Resource

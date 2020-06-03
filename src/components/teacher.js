@@ -14,7 +14,12 @@ import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { mediumText } from "../utils/validators/validations";
 
 export const TeacherList = (props) => (
-  <List {...props} title="Professores">
+  <List 
+    {...props} 
+    title="Professores"
+    pagination={false}
+    bulkActionButtons={false}
+  >
     <Datagrid rowClick="edit">
       <TextField source="id" label="ID" />
       <TextField source="nome" label="Nome" />

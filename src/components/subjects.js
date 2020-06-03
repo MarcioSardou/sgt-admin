@@ -14,7 +14,12 @@ import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { largeText, codValidation } from "../utils/validators/validations";
 
 export const SubjectList = (props) => (
-  <List {...props} title="Disciplinas">
+  <List 
+    {...props} 
+    title="Disciplinas"
+    pagination={false}
+    bulkActionButtons={false}
+  >
     <Datagrid rowClick="edit">
       <TextField source="id" label="ID" />
       <TextField source="nome" label="Nome" />
