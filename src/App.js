@@ -1,14 +1,14 @@
 import React from "react";
 import authProvider from "./providers/authProvider";
-// import translation from "./utils/translation";
-// import portugueseMessages from "ra-language-portuguese";
-// import polyglotI18nProvider from "ra-i18n-polyglot";
+import i18nProvider from "./i18n/i18nProvider";
+
 import { Admin, Resource } from "react-admin";
 import { UserList, UserCreate, UserUpdate, UserShow } from "./components/users";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PeopleIcon from "@material-ui/icons/People";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import EventNoteIcon from "@material-ui/icons/EventNote";
+
 import {
   SubjectCreate,
   SubjectList,
@@ -33,18 +33,12 @@ import { ClassUpdate } from "./components/classrooms/classUpdate";
 import { ClassShow } from "./components/classrooms/classShow";
 import dataProvider from "./providers/dataProvider";
 
-// const messages = {
-//   pt: portugueseMessages,
-// };
-// const i18nProvider = (locale) => messages[locale];
-
 function App() {
   return (
     <Admin
       authProvider={authProvider}
       dataProvider={dataProvider}
-      locale="pt"
-      // i18nProvider={i18nProvider}
+      i18nProvider={i18nProvider}
     >
       <Resource
         options={{ label: "Disciplinas" }}

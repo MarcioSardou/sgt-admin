@@ -17,6 +17,7 @@ export default {
       undo: "Desfazer",
       add: "Adicionar",
       remove: "Remove",
+      bulk_actions: "Ações em massa"
     },
     boolean: {
       true: "Sim",
@@ -31,6 +32,8 @@ export default {
       dashboard: "Painel de Controle",
       not_found: "Página não encontrada",
       loading: "Carregando",
+      empty: "Sem registros",
+      invite: "Crie novos registros"
     },
     input: {
       file: {
