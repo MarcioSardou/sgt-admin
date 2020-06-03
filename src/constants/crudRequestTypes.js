@@ -134,6 +134,6 @@ export default {
       if (data) return { data };
 
       return Promise.reject();
-    },
-  },
-};
+    }
+  }
+}

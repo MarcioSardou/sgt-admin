@@ -19,7 +19,12 @@ import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { mediumText, emailValidate } from "../utils/validators/validations";
 
 export const UserList = (props) => (
-  <List {...props} title="Usuários">
+  <List 
+    {...props} 
+    title="Usuários" 
+    pagination={false}
+    bulkActionButtons={false}
+  >
     <Datagrid>
       <TextField source="id" label="ID" />
       <TextField source="nome" label="Nome" />

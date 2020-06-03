@@ -4,7 +4,12 @@ import { List, Datagrid, TextField, NumberField } from "react-admin";
 
 export const ClassList = (props) => {
   return (
-    <List {...props} title="Aulas">
+    <List 
+      {...props} 
+      title="Aulas"
+      pagination={false}
+      bulkActionButtons={false}
+    >
       <Datagrid rowClick="edit">
         <NumberField source="id" label="ID" />
         <TextField source="turma" label="Turma" />
