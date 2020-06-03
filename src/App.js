@@ -1,8 +1,5 @@
 import React from "react";
 import authProvider from "./providers/authProvider";
-// import translation from "./utils/translation";
-// import portugueseMessages from "ra-language-portuguese";
-// import polyglotI18nProvider from "ra-i18n-polyglot";
 import { Admin, Resource } from "react-admin";
 import { UserList, UserCreate, UserUpdate, UserShow } from "./components/users";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -21,31 +18,16 @@ import {
   TeacherUpdate,
   TeacherShow,
 } from "./components/teacher";
-import {
-  ShiftCreate,
-  ShiftList,
-  ShiftUpdate,
-  ShiftShow,
-} from "./components/shift";
+
 import { ClassList } from "./components/classrooms/classList";
 import { ClassCreate } from "./components/classrooms/classCreate";
 import { ClassUpdate } from "./components/classrooms/classUpdate";
 import { ClassShow } from "./components/classrooms/classShow";
 import dataProvider from "./providers/dataProvider";
 
-// const messages = {
-//   pt: portugueseMessages,
-// };
-// const i18nProvider = (locale) => messages[locale];
-
 function App() {
   return (
-    <Admin
-      authProvider={authProvider}
-      dataProvider={dataProvider}
-      locale="pt"
-      // i18nProvider={i18nProvider}
-    >
+    <Admin authProvider={authProvider} dataProvider={dataProvider} locale="pt">
       <Resource
         options={{ label: "Disciplinas" }}
         name="Subjects"
@@ -74,15 +56,6 @@ function App() {
         edit={UserUpdate}
         show={UserShow}
         icon={AccountCircleIcon}
-      />
-
-      <Resource
-        options={{ label: "Turnos" }}
-        name="Shifts"
-        list={ShiftList}
-        create={ShiftCreate}
-        edit={ShiftUpdate}
-        show={ShiftShow}
       />
 
       <Resource

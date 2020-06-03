@@ -1,63 +1,80 @@
-import React, { useState, useEffect } from 'react'
-import { appRequest } from '../../providers/dataProvider'
-import { query } from '../../constants/queries'
-import { smallText, timeValidate } from '../../utils/validators/validations'
+import React, { useState, useEffect } from "react";
+import { appRequest } from "../../providers/dataProvider";
+import { query } from "../../constants/queries";
+import { smallText, timeValidate } from "../../utils/validators/validations";
 
 import {
   Create,
   SimpleForm,
   TextInput,
   SelectInput,
-  required
+  required,
+} from "react-admin";
 
-} from 'react-admin'
-
-export const ClassCreate = props => {
-  const [subjects, setSubjects] = useState([])
-  const [teachers, setTeachers] = useState([])
-  const [shifts, setShifts] = useState([])
+export const ClassCreate = (props) => {
+  const [subjects, setSubjects] = useState([]);
+  const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
-    async function renderData () {
+    async function renderData() {
       const {
         data: {
-          data: { allSubjects, allTeachers, allShifts }
-        }
-      } = await appRequest(query)
-      const subject = allSubjects.edges.node.map(item => ({ ...item, name: item.nome }))
-      const teacher = allTeachers.edges.node.map(item => ({ ...item, name: item.nome }))
-      const shift = allShifts.edges.node.map(item => ({ ...item, name: item.nome }))
+          data: { allSubjects, allTeachers },
+        },
+      } = await appRequest(query);
+      const subject = allSubjects.edges.node.map((item) => ({
+        ...item,
+        name: item.nome,
+      }));
+      const teacher = allTeachers.edges.node.map((item) => ({
+        ...item,
+        name: item.nome,
+      }));
 
-      setSubjects(subject)
-      setTeachers(teacher)
-      setShifts(shift)
-      console.log(subject)
+      setSubjects(subject);
+      setTeachers(teacher);
     }
-    renderData()
-  }, [])
+    renderData();
+  }, []);
 
   return (
     <Create title="Criação de Turma" {...props}>
       <SimpleForm>
-        <TextInput source="turma" label="Turma" validate={smallText}/>
-        <TextInput source="sala" label="Sala" validate={smallText}/>
-        <TextInput source="horario" label="Horário" validate={timeValidate}/>
+        <TextInput source="turma" label="Turma" validate={smallText} />
+        <TextInput source="sala" label="Sala" validate={smallText} />
+        <TextInput source="horario" label="Horário" validate={timeValidate} />
         <SelectInput
-          source="professor_id"
+          source="turno"
+          label="Turno"
+          choices={[
+            { id: "manha", name: "Manhã" },
+            { id: "tarde", name: "Tarde" },
+            { id: "noite", name: "Noite" },
+          ]}
+        />
+
+        <TextInput source="data" label="Data de exibição" />
+        <SelectInput
+          source="status"
+          choices={[
+            { id: "confirmado", name: "Confirmado" },
+            { id: "adiado", name: "Adiado" },
+            { id: "faltou", name: "Faltou" },
+          ]}
+          validate={required()}
+        />
+
+        <SelectInput
+          source="professor"
           choices={teachers}
           validate={required()}
         />
         <SelectInput
-          source="disciplina_id"
+          source="disciplina"
           choices={subjects}
-          validate={required()}
-        />
-        <SelectInput
-          source="turno_id"
-          choices={shifts}
           validate={required()}
         />
       </SimpleForm>
     </Create>
-  )
-}
+  );
+};

@@ -1,76 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import { appRequest } from '../../providers/dataProvider'
-import { query } from '../../constants/queries'
-import { smallText, timeValidate } from '../../utils/validators/validations'
+import React, { useState, useEffect } from "react";
+import { appRequest } from "../../providers/dataProvider";
+import { query } from "../../constants/queries";
+import { smallText, timeValidate } from "../../utils/validators/validations";
 
 import {
-	Edit,
-	SimpleForm,
+  Edit,
+  SimpleForm,
   TextInput,
   SelectInput,
   required,
+} from "react-admin";
 
-	
-} from 'react-admin';
+export const ClassUpdate = (props) => {
+  const [subjects, setSubjects] = useState([]);
+  const [teachers, setTeachers] = useState([]);
 
+  async function renderData() {
+    const {
+      data: {
+        data: { allSubjects, allTeachers },
+      },
+    } = await appRequest(query);
+    console.log("aqui", query);
 
-export const ClassUpdate = props => {
+    const subject = allSubjects.edges.node.map((item) => ({
+      ...item,
+      name: item.nome,
+    }));
+    const teacher = allTeachers.edges.node.map((item) => ({
+      ...item,
+      name: item.nome,
+    }));
 
-  const [subjects, setSubjects] = useState([])
-  const [teachers, setTeachers] = useState([])
-  const [shifts, setShifts] = useState([])
-  
-  useEffect(() => {
-		async function renderData(){
-
-		const {
-			data: {
-				data: { allSubjects, allTeachers, allShifts },
-			},
-		} = await appRequest(query)
-    const subject = allSubjects.edges.node.map(item  => ({...item,name : item.nome}))
-    const teacher = allTeachers.edges.node.map(item  => ({...item,name : item.nome}))
-		const shift = allShifts.edges.node.map(item  => ({...item,name : item.nome}))
-    
-			setSubjects(subject)
-			setTeachers(teacher)
-      setShifts(shift)
-      console.log(subject);
-      	 
+    setSubjects(subject);
+    setTeachers(teacher);
   }
-	renderData()
-},[]) 
 
+  useEffect(() => {
+    renderData();
+  }, []);
 
+  return (
+    <Edit title="Edição de Turma" {...props}>
+      <SimpleForm>
+        <TextInput source="turma" label="Turma" validate={smallText} />
+        <TextInput source="sala" label="Sala" validate={smallText} />
+        <TextInput source="horario" label="Horário" validate={timeValidate} />
+        <SelectInput
+          source="turno"
+          label="Turno"
+          choices={[
+            { id: "manha", name: "Manhã" },
+            { id: "tarde", name: "Tarde" },
+            { id: "noite", name: "Noite" },
+          ]}
+        />
 
-	return (
-	<Edit title="Edição de Turma" {...props}>
-		<SimpleForm>
-		<TextInput source="turma" label="Turma" validate={smallText}/>
-		<TextInput source="sala" label="Sala" validate={smallText}/>
-		<TextInput source="horario" label="Horário" validate={timeValidate}/>
-    <SelectInput 
-      source="professor_id"
-      label="Professor"
-      choices={teachers}
-      validate={required()}
-    />
-    <SelectInput 
-      source="disciplina_id"
-      label="Disciplina"
-      choices={subjects}
-      validate={required()}
-    />
-    <SelectInput 
-      source="turno_id"
-      label="Turno"
-      choices={shifts}
-      validate={required()}
-    />
-		</SimpleForm>
-	</Edit>
-)}
-
-
-
-
+        <TextInput source="data" label="Data de exibição" />
+        <SelectInput
+          source="status"
+          choices={[
+            { id: "confirmado", name: "Confirmado" },
+            { id: "adiado", name: "Adiado" },
+            { id: "faltou", name: "Faltou" },
+          ]}
+          validate={required()}
+        />
+        <SelectInput
+          source="professor.id"
+          label="Professor"
+          choices={teachers}
+          validate={required()}
+        />
+        <SelectInput
+          source="disciplina.id"
+          label="Disciplina"
+          choices={subjects}
+          validate={required()}
+        />
+      </SimpleForm>
+    </Edit>
+  );
+};

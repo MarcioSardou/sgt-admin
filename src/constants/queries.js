@@ -1,6 +1,4 @@
-export const query =
-
-` allSubjects {
+export const query = ` allSubjects {
     edges {
       node {
         id
@@ -19,12 +17,4 @@ export const query =
     }
   }
 
-  allShifts {
-    edges {
-      node {
-        id
-        nome
-      }
-    }
-  }
-`
+`;
