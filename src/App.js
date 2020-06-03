@@ -1,7 +1,6 @@
 import React from "react";
 import authProvider from "./providers/authProvider";
 import i18nProvider from "./i18n/i18nProvider";
-
 import { Admin, Resource } from "react-admin";
 import { UserList, UserCreate, UserUpdate, UserShow } from "./components/users";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
