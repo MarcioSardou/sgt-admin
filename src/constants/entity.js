@@ -6,7 +6,6 @@ const entity = {
       update: 'updateUser',
       delete: 'deleteUser',
       singular: 'user',
-      deleteMany: 'deleteManyUsers',
       params: `
         id
         nome
@@ -21,7 +20,6 @@ const entity = {
       update: 'updateTeacher',
       delete: 'deleteTeacher',
       singular: 'teacher',
-      deleteMany: 'deleteManyTeachers',
       params: `
         id
         nome
@@ -35,7 +33,6 @@ const entity = {
       update: 'updateSubject',
       delete: 'deleteSubject',
       singular: 'subject',
-      deleteMany: 'deleteManySubjects',
       params: `
         id
         nome
@@ -50,7 +47,6 @@ const entity = {
       update: 'updateShift',
       delete: 'deleteShift',
       singular: 'shift',
-      deleteMany: 'deleteManyShifts',
       params: `
         id
         nome
@@ -64,7 +60,6 @@ const entity = {
       update: 'updateClassRoom',
       delete: 'deleteClassRoom',
       singular: 'classRoom',
-      deleteMany: 'deleteManyClassRooms',
       params: `
         id
         turma

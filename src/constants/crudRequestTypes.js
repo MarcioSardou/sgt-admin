@@ -147,22 +147,5 @@ export default {
 
       return Promise.reject();
     }
-  },
-  
-  DELETE_MANY: {
-    dataSend(resource, params){
-      return {
-        query: `mutation {
-          ${resolveEntity(resource).deleteMany} (data: ${params.ids})
-        }`,
-      }
-    },
-
-    async dataReturn(res, resource){
-      const data = res.data.data
-      if(data) return { data }
-
-      return Promise.reject();
-    }
   }
 }
