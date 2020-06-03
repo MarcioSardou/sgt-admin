@@ -1,32 +1,34 @@
-import axios from 'axios'
-import { __API_URL__ } from '../constants/api'
-import crudRequestTypes from '../constants/crudRequestTypes'
+import axios from "axios";
+import { __API_URL__ } from "../constants/api";
+import crudRequestTypes from "../constants/crudRequestTypes";
 
 export default async (type, resource, params) => {
-  const token = localStorage.getItem('@admin:token')
+  const token = localStorage.getItem("@admin:token");
   const dataResquest = crudRequestTypes[type];
-  const dataForm = await dataResquest.dataSend(resource, params);
+  const dataForm = await dataResquest.dataSend(resource, params, type);
+
+  console.log(type);
 
   return axios({
-    method: 'POST',
+    method: "POST",
     url: __API_URL__,
     data: dataForm,
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
-  .then(res => dataResquest.dataReturn(res, resource))
-  .catch(e => {
-      throw new Error(e)
-  })
-}
+    .then((res) => dataResquest.dataReturn(res, resource))
+    .catch((e) => {
+      throw new Error(console.log("ERRO AQUI: ", e));
+    });
+};
 
-export const appRequest =  async query => {
-  const token = localStorage.getItem('@admin:token')
+export const appRequest = async (query) => {
+  const token = localStorage.getItem("@admin:token");
 
   return axios({
     url: __API_URL__,
-    method: 'post',
+    method: "post",
     data: {
       query: `
         query {
@@ -37,5 +39,5 @@ export const appRequest =  async query => {
     headers: {
       authorization: `Bearer ${token}`,
     },
-  })
-}
+  });
+};

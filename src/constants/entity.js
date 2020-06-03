@@ -65,7 +65,6 @@ const entity = {
       `,
     };
   },
-  // paramsToRemoveOnUpdate: ["professor", "disciplina"],
 };
 
 export default entity;

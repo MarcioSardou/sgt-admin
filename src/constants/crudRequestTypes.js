@@ -87,16 +87,6 @@ export default {
 
   UPDATE: {
     async dataSend(resource, params) {
-      // const removeField = await entity.paramsToRemoveOnUpdate
-      // ? entity.paramsToRemoveOnUpdate
-      // : null
-
-      // if (removeField) {
-      //   removeField.forEach(field => {
-      //     delete params.data[field]
-      //   })
-      // }
-
       const updateData = Object.entries(params.data).reduce(
         (acc, value) => {
           let fieldValue = value[1];
