@@ -10,15 +10,15 @@ export default {
     dataSend(resource, params) {
       return {
         query: `query { 
-          all${resource} {
-            edges {
-              node {
-                ${resolveEntity(resource, params)}
+            all${resource} {
+              edges {
+                node {
+                  ${resolveEntity(resource, params)}
+                }
               }
+              totalCount
             }
-            totalCount
-          }
-        }`,
+          }`,
       };
     },
 
@@ -71,10 +71,10 @@ export default {
 
       return {
         query: `mutation {
-          ${resolveEntity(resource).create} (input: {${createData.input}}) {
-            id
-          }
-        }`,
+            ${resolveEntity(resource).create} (input: {${createData.input}}) {
+              id
+            }
+          }`,
       };
     },
     dataReturn(res, resource) {
@@ -103,12 +103,12 @@ export default {
 
       return {
         query: `mutation {
-          ${resolveEntity(resource).update} (id: ${params.id}, input: {${
+              ${resolveEntity(resource).update} (id: ${params.id}, input: {${
           updateData.input
         }}) {
-            id
-          }
-        }`,
+                id
+              }
+            }`,
       };
     },
 
@@ -124,16 +124,15 @@ export default {
     dataSend(resource, params) {
       return {
         query: `mutation {
-          ${resolveEntity(resource).delete} (id: ${params.id})
-        }`,
+              ${resolveEntity(resource).delete} (id: ${params.id})
+            }`,
       };
     },
 
     async dataReturn(res, resource) {
       const data = res.data.data;
-      if (data) return { data };
-
+      if (!res.data.hasOwnProperty("errors")) return { data };
       return Promise.reject();
-    }
-  }
-}
+    },
+  },
+};

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { appRequest } from "../../providers/dataProvider";
 import { query } from "../../constants/queries";
-import { smallText, timeValidate } from "../../utils/validators/validations";
+import {
+  smallText,
+  timeValidate,
+  dateValidate,
+} from "../../utils/validators/validations";
 
 import {
   Edit,
@@ -49,6 +53,7 @@ export const ClassUpdate = (props) => {
         <SelectInput
           source="turno"
           label="Turno"
+          validate={required()}
           choices={[
             { id: "manha", name: "Manhã" },
             { id: "tarde", name: "Tarde" },
@@ -56,7 +61,11 @@ export const ClassUpdate = (props) => {
           ]}
         />
 
-        <TextInput source="data" label="Data de exibição" />
+        <TextInput
+          source="data"
+          label="Data de exibição"
+          validate={dateValidate}
+        />
         <SelectInput
           source="status"
           choices={[

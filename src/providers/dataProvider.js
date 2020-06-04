@@ -1,6 +1,7 @@
 import axios from "axios";
 import { __API_URL__ } from "../constants/api";
 import crudRequestTypes from "../constants/crudRequestTypes";
+import { HttpError } from "react-admin";
 
 export default async (type, resource, params) => {
   const token = localStorage.getItem("@admin:token");
@@ -19,7 +20,7 @@ export default async (type, resource, params) => {
   })
     .then((res) => dataResquest.dataReturn(res, resource))
     .catch((e) => {
-      throw new Error(console.log("ERRO AQUI: ", e));
+      return Promise.reject(new HttpError("text", 403, {}));
     });
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import authProvider from "./providers/authProvider";
 import i18nProvider from "./i18n/i18nProvider";
-import { Admin, Resource } from "react-admin";
+import { Admin, Resource, Notification, Layout } from "react-admin";
 import { UserList, UserCreate, UserUpdate, UserShow } from "./components/users";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PeopleIcon from "@material-ui/icons/People";
@@ -26,9 +26,15 @@ import { ClassUpdate } from "./components/classrooms/classUpdate";
 import { ClassShow } from "./components/classrooms/classShow";
 import dataProvider from "./providers/dataProvider";
 
+const MyNotification = (props) => (
+  <Notification {...props} autoHideDuration={5000} />
+);
+
+const MyLayout = (props) => <Layout {...props} notification={MyNotification} />;
 function App() {
   return (
     <Admin
+      layout={MyLayout}
       authProvider={authProvider}
       dataProvider={dataProvider}
       i18nProvider={i18nProvider}
