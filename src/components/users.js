@@ -18,11 +18,13 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { mediumText, emailValidate } from "../utils/validators/validations";
 
+const PostPagination = () => { return null }
+
 export const UserList = (props) => (
   <List 
     {...props} 
     title="Usuários" 
-    pagination={false}
+    pagination={<PostPagination />}
     bulkActionButtons={false}
   >
     <Datagrid>

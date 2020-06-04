@@ -2,12 +2,14 @@ import React from "react";
 import { BtnEdit, BtnShow, BtnDelete } from "../../utils/templates/buttons";
 import { List, Datagrid, TextField, NumberField } from "react-admin";
 
+const PostPagination = () => { return null }
+
 export const ClassList = (props) => {
   return (
     <List 
       {...props} 
       title="Aulas"
-      pagination={false}
+      pagination={<PostPagination />}
       bulkActionButtons={false}
     >
       <Datagrid rowClick="edit">
