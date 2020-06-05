@@ -13,11 +13,13 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { largeText, codValidation } from "../utils/validators/validations";
 
+const PostPagination = () => { return null }
+
 export const SubjectList = (props) => (
   <List 
     {...props} 
     title="Disciplinas"
-    pagination={false}
+    pagination={<PostPagination />}
     bulkActionButtons={false}
   >
     <Datagrid rowClick="edit">
