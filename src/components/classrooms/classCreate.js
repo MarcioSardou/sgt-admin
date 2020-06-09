@@ -12,6 +12,7 @@ import {
   SimpleForm,
   TextInput,
   SelectInput,
+  DateInput,
   required,
 } from "react-admin";
 
@@ -19,31 +20,32 @@ export const ClassCreate = (props) => {
   const [subjects, setSubjects] = useState([]);
   const [teachers, setTeachers] = useState([]);
 
-  useEffect(() => {
-    async function renderData() {
-      const {
-        data: {
-          data: { allSubjects, allTeachers },
-        },
-      } = await appRequest(query);
-      const subject = allSubjects.edges.node.map((item) => ({
-        ...item,
-        name: item.nome,
-      }));
-      const teacher = allTeachers.edges.node.map((item) => ({
-        ...item,
-        name: item.nome,
-      }));
+  async function renderData() {
+    const {
+      data: {
+        data: { allSubjects, allTeachers },
+      },
+    } = await appRequest(query);
+    const subject = allSubjects.edges.node.map((item) => ({
+      ...item,
+      name: item.nome,
+    }));
+    const teacher = allTeachers.edges.node.map((item) => ({
+      ...item,
+      name: item.nome,
+    }));
 
-      setSubjects(subject);
-      setTeachers(teacher);
-    }
+    setSubjects(subject);
+    setTeachers(teacher);
+  }
+
+  useEffect(() => {
     renderData();
   }, []);
 
   return (
     <Create title="Criação de Turma" {...props}>
-      <SimpleForm>
+      <SimpleForm redirect="list">
         <TextInput source="turma" label="Turma" validate={smallText} />
         <TextInput source="sala" label="Sala" validate={smallText} />
         <TextInput source="horario" label="Horário" validate={timeValidate} />
@@ -57,7 +59,7 @@ export const ClassCreate = (props) => {
             { id: "noite", name: "Noite" },
           ]}
         />
-        <TextInput
+        <DateInput
           source="data"
           label="Data de exibição"
           validate={dateValidate}
@@ -73,12 +75,12 @@ export const ClassCreate = (props) => {
         />
 
         <SelectInput
-          source="professor"
+          source="professor_id"
           choices={teachers}
           validate={required()}
         />
         <SelectInput
-          source="disciplina"
+          source="disciplina_id"
           choices={subjects}
           validate={required()}
         />

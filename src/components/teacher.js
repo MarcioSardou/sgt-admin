@@ -13,11 +13,13 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { mediumText } from "../utils/validators/validations";
 
-const PostPagination = () => { return null }
+const PostPagination = () => {
+  return null;
+};
 
 export const TeacherList = (props) => (
-  <List 
-    {...props} 
+  <List
+    {...props}
     title="Professores"
     pagination={<PostPagination />}
     bulkActionButtons={false}
@@ -34,7 +36,7 @@ export const TeacherList = (props) => (
 
 export const TeacherCreate = (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="list">
       <TextInput source="nome" label="Nome" validate={mediumText} />
     </SimpleForm>
   </Create>
@@ -42,7 +44,7 @@ export const TeacherCreate = (props) => (
 
 export const TeacherUpdate = (props) => (
   <Edit title="Edição de Usuário" {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="show">
       <TextInput source="nome" label="Nome" validate={mediumText} />
     </SimpleForm>
   </Edit>

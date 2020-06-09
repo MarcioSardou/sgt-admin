@@ -12,6 +12,7 @@ import {
   SimpleForm,
   TextInput,
   SelectInput,
+  DateInput,
   required,
 } from "react-admin";
 
@@ -46,7 +47,7 @@ export const ClassUpdate = (props) => {
 
   return (
     <Edit title="Edição de Turma" {...props}>
-      <SimpleForm>
+      <SimpleForm redirect="show">
         <TextInput source="turma" label="Turma" validate={smallText} />
         <TextInput source="sala" label="Sala" validate={smallText} />
         <TextInput source="horario" label="Horário" validate={timeValidate} />
@@ -61,7 +62,7 @@ export const ClassUpdate = (props) => {
           ]}
         />
 
-        <TextInput
+        <DateInput
           source="data"
           label="Data de exibição"
           validate={dateValidate}
@@ -76,13 +77,13 @@ export const ClassUpdate = (props) => {
           validate={required()}
         />
         <SelectInput
-          source="professor.id"
+          source="professor_id"
           label="Professor"
           choices={teachers}
           validate={required()}
         />
         <SelectInput
-          source="disciplina.id"
+          source="disciplina_id"
           label="Disciplina"
           choices={subjects}
           validate={required()}

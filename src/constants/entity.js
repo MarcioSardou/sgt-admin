@@ -54,6 +54,8 @@ const entity = {
         turno
         status
         data
+        professor_id
+        disciplina_id
         professor {
           id
           nome
@@ -65,6 +67,7 @@ const entity = {
       `,
     };
   },
+  paramsToRemoveOnUpdate: ["professor", "disciplina"],
 };
 
 export default entity;

@@ -18,12 +18,14 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { mediumText, emailValidate } from "../utils/validators/validations";
 
-const PostPagination = () => { return null }
+const PostPagination = () => {
+  return null;
+};
 
 export const UserList = (props) => (
-  <List 
-    {...props} 
-    title="Usuários" 
+  <List
+    {...props}
+    title="Usuários"
     pagination={<PostPagination />}
     bulkActionButtons={false}
   >
@@ -40,7 +42,7 @@ export const UserList = (props) => (
 
 export const UserCreate = (props) => (
   <Create title="Criação de Usuário" {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="list">
       <TextInput source="nome" label="Nome" validate={mediumText} />
       <TextInput source="email" label="E-mail" validate={emailValidate} />
       <PasswordInput
@@ -58,7 +60,7 @@ export const UserCreate = (props) => (
 
 export const UserUpdate = (props) => (
   <Edit title="Edição de Usuário" {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="show">
       <TextInput source="nome" label="Nome" validate={mediumText} />
       <TextInput source="email" label="E-mail" validate={emailValidate} />
       <PasswordInput

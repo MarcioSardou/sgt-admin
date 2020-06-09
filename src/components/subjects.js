@@ -13,11 +13,13 @@ import {
 import { BtnEdit, BtnShow, BtnDelete } from "../utils/templates/buttons";
 import { largeText, codValidation } from "../utils/validators/validations";
 
-const PostPagination = () => { return null }
+const PostPagination = () => {
+  return null;
+};
 
 export const SubjectList = (props) => (
-  <List 
-    {...props} 
+  <List
+    {...props}
     title="Disciplinas"
     pagination={<PostPagination />}
     bulkActionButtons={false}
@@ -35,7 +37,7 @@ export const SubjectList = (props) => (
 
 export const SubjectCreate = (props) => (
   <Create title="Criação de Disciplina" {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="list">
       <TextInput source="nome" label="Nome" validate={largeText} />
       <TextInput source="codigo" label="Código" validate={codValidation} />
     </SimpleForm>
@@ -44,7 +46,7 @@ export const SubjectCreate = (props) => (
 
 export const SubjectUpdate = (props) => (
   <Edit title="Edição de Disciplina" {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="show">
       <TextInput source="nome" label="Nome" validate={largeText} />
       <TextInput source="codigo" label="Código" validate={codValidation} />
     </SimpleForm>
