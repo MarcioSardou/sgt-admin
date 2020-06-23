@@ -1,6 +1,6 @@
 import React from "react";
 import { BtnEdit, BtnShow, BtnDelete } from "../../utils/templates/buttons";
-import { List, Datagrid, TextField, DateField } from "react-admin";
+import { List, Datagrid, TextField } from "react-admin";
 
 const PostPagination = () => {
   return null;
@@ -19,7 +19,7 @@ export const ClassList = (props) => {
         <TextField source="horario" label="Horário" />
         <TextField source="disciplina.nome" label="Disciplina" />
         <TextField source="professor.nome" label="Professor" />
-        <DateField source="data" label="Data da Aula " />
+        {/* <TextField source="data" /> */}
         <BtnShow />
         <BtnEdit />
         <BtnDelete />
