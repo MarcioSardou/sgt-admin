@@ -53,7 +53,7 @@ const entity = {
         horario
         turno
         status
-        data
+        dias_semana
         professor_id
         disciplina_id
         professor {

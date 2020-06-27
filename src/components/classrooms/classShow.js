@@ -9,7 +9,7 @@ export const ClassShow = (props) => (
       <TextField source="sala" label="Sala" />
       <TextField source="horario" label="Horário" />
       <TextField source="turno" label="Turno" />
-      <TextField source="data" label="Data de Exibição" />
+      <TextField source="dias_semana" label="Dia da semana" />
       <TextField source="status" label="Status" />
       <TextField source="professor.nome" label="Professor" />
       <TextField source="disciplina.nome" label="Disciplina" />

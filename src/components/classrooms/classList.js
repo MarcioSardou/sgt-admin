@@ -19,7 +19,6 @@ export const ClassList = (props) => {
         <TextField source="horario" label="Horário" />
         <TextField source="disciplina.nome" label="Disciplina" />
         <TextField source="professor.nome" label="Professor" />
-        {/* <TextField source="data" /> */}
         <BtnShow />
         <BtnEdit />
         <BtnDelete />
