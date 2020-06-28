@@ -8,8 +8,6 @@ export default async (type, resource, params) => {
   const dataResquest = crudRequestTypes[type];
   const dataForm = await dataResquest.dataSend(resource, params, type);
 
-  console.log(type);
-
   return axios({
     method: "POST",
     url: __API_URL__,
