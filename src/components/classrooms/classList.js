@@ -15,6 +15,7 @@ export const ClassList = (props) => {
       bulkActionButtons={false}
     >
       <Datagrid rowClick="edit">
+        <TextField source="id" label="ID" />
         <TextField source="professor.nome" label="Professor" />
         <TextField source="disciplina.nome" label="Disciplina" />
         <TextField source="dias_semana" label="Dia da semana"/>
