@@ -25,7 +25,6 @@ export const TeacherList = (props) => (
     bulkActionButtons={false}
   >
     <Datagrid rowClick="edit">
-      <TextField source="id" label="ID" />
       <TextField source="nome" label="Nome" />
       <BtnShow />
       <BtnEdit />
