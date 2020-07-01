@@ -6,7 +6,7 @@ const smallText = [mandatory, maxLength(20)];
 
 const mediumText = [mandatory, maxLength(30)];
 
-const largeText = [mandatory, maxLength(50)];
+const largeText = [mandatory, maxLength(40)];
 
 const codValidation = [mandatory, minLength(7), maxLength(10)];
 
