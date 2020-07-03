@@ -87,7 +87,7 @@ export const ClassUpdate = (props) => {
           choices={[
             { id: "segunda-feira", name: "Segunda-feira" },
             { id: "terca-feira", name: "Terça-feira" },
-            { id: "quarta-feira", name: "Qarta-feira" },
+            { id: "quarta-feira", name: "Quarta-feira" },
             { id: "quinta-feira", name: "Quinta-feira" },
             { id: "sexta-feira", name: "Sexta-feira" },
           ]}
